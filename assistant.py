@@ -1,11 +1,11 @@
-from openai from OpenAI
+from openai import OpenAI
 key = "your-api-key"
 
 messages = []
 
-cliendt = OpenAI(
+client = OpenAI(
 
-    api_key=key
+    api_key=key,
 )
 
 def completion(message):
@@ -24,9 +24,12 @@ def completion(message):
         "role": "assistant",
         "content": chat_completion.choices[0].message.content
     }
+    messages.append(message)
+    print(f"Jarvis: {message["content"]}\n")
+
 
     if __name__ == "__main__":
-        print(f"Jarvis: Hi I am Jarvis, your AI assistant. How can I help you today?\n")
+        print("Jarvis: Hi I am Jarvis, your AI assistant. How can I help you today?\n")
         while True:
             user_question = input()
             print(f"User: {user_question}")
