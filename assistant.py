@@ -25,4 +25,9 @@ def completion(message):
         "content": chat_completion.choices[0].message.content
     }
 
-    
+    if __name__ == "__main__":
+        print(f"Jarvis: Hi I am Jarvis, your AI assistant. How can I help you today?\n")
+        while True:
+            user_question = input()
+            print(f"User: {user_question}")
+            completion(user_question)
