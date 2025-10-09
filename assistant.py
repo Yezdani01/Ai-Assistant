@@ -1,6 +1,5 @@
 from openai import OpenAI
 key = "your-api-key"
-
 messages = []
 
 client = OpenAI(
@@ -18,7 +17,9 @@ def completion(message):
          }
     )
 
-    chat_completion = client.chat.completions.create(messages=messages, model="gpt-3.5-turbo")
+    chat_completion = client.chat.completions.create(messages=messages, 
+                            model="gpt-3.5-turbo"
+                            )
 
     message = {
         "role": "assistant",
@@ -28,9 +29,9 @@ def completion(message):
     print(f"Jarvis: {message["content"]}\n")
 
 
-    if __name__ == "__main__":
-        print("Jarvis: Hi I am Jarvis, your AI assistant. How can I help you today?\n")
-        while True:
-            user_question = input()
-            print(f"User: {user_question}")
-            completion(user_question)
+if __name__ == "__main__":
+    print("Jarvis: Hi I am Jarvis, your AI assistant. How can I help you today?\n")
+    while True:
+        user_question = input()
+        print(f"User: {user_question}")
+        completion(user_question)
